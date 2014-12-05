@@ -32,6 +32,11 @@ h3 {
 	padding-bottom: 20px;
 	font-size: 40px;
 }
+
+a {
+	color: #FFFFFF;
+}
+
 .btn {
 	background-color: #941515;
 	color: #FFFFFF;

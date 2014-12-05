@@ -15,12 +15,16 @@ app.get("/", function(req, res){
 
 app.post("/create", function(req, res){
 	db.URL.create(req.body).done(function(err, newURL){
-	 	// res.send(newURL);
+		// if(err) {
+		// 	// console.log(err);
+		// 	var errMsg = {msg: err.errors[0].message};
+		// 	res.render("create", {errMsg: errMsg});
+		// };
 		var idNum = newURL.id;
 		var shortURL = hashids.encode(idNum);
 		newURL.hash = shortURL;
 		newURL.save().done(function(err, updateURL){
-		// res.send(updateURL);
+
 		res.render("create", {updateURL:updateURL});
 		});
 	});
@@ -29,7 +33,6 @@ app.post("/create", function(req, res){
 app.get("/:tinyurl", function(req, res){
 	db.URL.find({where: {hash: req.params.tinyurl}}).done(function(err, data){
 			res.redirect("http://" + data.url);
-			// res.send("Hey")
 	});
 })
 

@@ -32,7 +32,8 @@ app.post("/create", function(req, res){
 
 app.get("/:tinyurl", function(req, res){
 	db.URL.find({where: {hash: req.params.tinyurl}}).done(function(err, data){
-			res.redirect("http://" + data.url);
+		var myHost = {host: req.headers.host};
+		res.redirect("http://" + data.url);
 	});
 })
 

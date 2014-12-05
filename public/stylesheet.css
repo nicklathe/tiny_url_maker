@@ -1,0 +1,39 @@
+body {
+	background-color: #C7CECF;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#body {
+	min-height: 600px;
+}
+
+#header {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background-color: #39464C;
+}
+
+#body {
+	padding-top: 200px;
+}
+
+h1{
+	color: #FFFFFF;
+	font-size: 60px;
+}
+
+h4 {
+	padding-bottom: 20px;
+}
+
+h3 {
+	color: #FFFFFF;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 40px;
+}
+.btn {
+	background-color: #941515;
+	color: #FFFFFF;
+}
+

@@ -25,15 +25,19 @@ app.post("/create", function(req, res){
 		newURL.hash = shortURL;
 		newURL.save().done(function(err, updateURL){
 
-		res.render("create", {updateURL:updateURL});
+			var myHost = req.headers.host;
+			var urlsObj = {
+				'updateURL':updateURL,
+				'myHost':myHost
+			};
+		res.render("create", urlsObj);
 		});
 	});
 });
 
 app.get("/:tinyurl", function(req, res){
 	db.URL.find({where: {hash: req.params.tinyurl}}).done(function(err, data){
-		var myHost = {host: req.headers.host};
-		res.redirect("http://" + data.url);
+		res.redirect(data.url);
 	});
 })
 
